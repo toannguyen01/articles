@@ -1,0 +1,6 @@
+<div class="container">
+  <h1><%= @postimage.headline %></h1>
+  <%= image_tag(@postimage.image.url, alt: 'Image') if @postimage.image? %>
+  <p><%= @postimage.body %></p>   
+  <p><%= link_to 'Edit', edit_postimage_path(@postimage)  %> | <%= link_to 'Back', postimages_path %></p>
+</div>

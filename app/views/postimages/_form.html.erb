@@ -1,0 +1,32 @@
+<div class="container">
+  <%= semantic_form_for @postimage do |f| %>
+    <div>
+      <%= f.label :headline %>
+      <%= f.text_field :headline, class: 'form-control' %>
+    </div>
+
+    <div>
+      <%= f.label :order_show %>
+      <%= f.text_field :order_show, class: 'form-control' %>
+    </div>  
+
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+   
+    <div>
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'btn btn-default' %>
+    </div>
+    <br>
+    <div>
+       <%= f.input :article  %>
+    </div>
+
+
+    <%= f.submit %>
+  <% end %>
+  <div><%= link_to 'Back', postimages_path %></div>
+</div>
+

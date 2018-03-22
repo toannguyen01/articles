@@ -1,0 +1,8 @@
+<h2><%= link_to postimage.headline, postimage_path(postimage) %></h2>
+<p><%= truncate(postimage.body, length: 150) %></p>
+<p><%= image_tag(postimage.image.url, alt: 'Image') if postimage.image? %></p>
+<p> <%= link_to 'Edit', edit_postimage_path(postimage) %>  | 
+    <%= link_to 'Read', postimage_path(postimage) %>    |
+    <%= link_to 'Delete', postimage_path(postimage), method: :delete, 
+          data: {confirm: 'Are you sure want to delete this post image '} %> </p>   
+<hr>
