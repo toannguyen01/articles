@@ -226,7 +226,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug
-  capybara (~> 2.13)
+  capybara
   carrierwave
   coffee-rails (~> 4.2)
   enumerize

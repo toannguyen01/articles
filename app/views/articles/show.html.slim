@@ -1,0 +1,19 @@
+div.container
+  h1.title_article 
+    = @article.title 
+  - @articles_att.each do |att| 
+    - if att.try(:image) 
+        div.border_box
+        = att.headline 
+        = image_tag(att.image.url, alt: 'Image') if att.image?
+        p = link_to 'Edit', edit_postimage_path(att.id) 
+        hr 
+    - else 
+      div.border_box
+        = att.headline 
+        p = link_to 'Edit', edit_posttext_path(att.id) 
+        hr
+
+p 
+  = link_to 'Edit', edit_article_path(@article)   
+  = link_to 'Back', articles_path

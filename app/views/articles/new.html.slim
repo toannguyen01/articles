@@ -1,0 +1,12 @@
+center
+  h1 New Article
+div.container
+  = form_for @article do |f|
+    div
+      = f.label :title 
+      = f.text_field :title, class: 'form-control' 
+      = f.submit 
+
+= link_to 'Back', articles_path 
+
+
