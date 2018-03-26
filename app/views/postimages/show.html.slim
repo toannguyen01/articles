@@ -1,0 +1,7 @@
+div.container
+  h1
+    = @postimage.headline 
+  p = image_tag(@postimage.image.url, alt: 'Image') if @postimage.image? 
+  p = @postimage.body 
+  p = link_to 'Edit', edit_postimage_path(@postimage)  
+  p = link_to 'Back', postimages_path 

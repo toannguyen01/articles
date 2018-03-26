@@ -26,23 +26,15 @@ class PosttextsController < ApplicationController
 
 
   def update
-    if @posttext.update(posttext_params)
-      flash[:notice] = 'Update sucessfully'
-      redirect_to posttexts_url
-    else
-      flash[:notice] = 'Update error'
-      render :new
-    end  
+    return redirect_to posttexts_url, notice: 'Update sucessfully' if @posttext.update(posttext_params)
+    flash[:notice] = 'Update error'
+    render :new
   end
 
   def destroy
-    if @posttext.destroy
-      flash[:notice] = 'Destroy sucessfully'
-      redirect_to posttexts_url
-    else
-      flash[:notice] = 'Destroy error'
-      redirect_to posttext_url
-    end
+    return redirect_to posttexts_url, notice: 'Destroy sucessfully' if @posttext.destroy
+    flash[:notice] = 'Destroy error'
+    redirect_to posttext_url
   end
 
   private

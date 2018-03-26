@@ -24,23 +24,17 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(article_params)
-      flash[:notice] = 'Update sucessfully'
-      redirect_to articles_url
-    else
-      flash[:notice] = 'Update error'
-      render :new
-    end 
+    return redirect_to articles_url, notice: 'Update sucessfully' if @article.update(article_params)
+    flash[:notice] = 'Update sucessfully'
+    flash[:notice] = 'Update error'
+    render :new
   end
 
   def destroy
-    if  @article.destroy
-      flash[:notice] = 'Destroy sucessfully'
-        redirect_to articles_url
-    else
-      flash[:notice] = 'Destroy error'
-        redirect_to articles_url
-    end
+    return redirect_to articles_url, notice: 'Destroy sucessfully' if  @article.destroy
+    flash[:notice] = 'Destroy error'
+    redirect_to articles_url
+
   end
 
   private

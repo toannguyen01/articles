@@ -24,23 +24,17 @@ class PostimagesController < ApplicationController
   end
  
   def update
-    if @postimage.update(postimage_params)
-      flash[:notice] = 'Update sucessfully'
-      redirect_to postimages_url
-    else
-      flash[:notice] = 'Update error'
-      render :new
-    end     
+    return redirect_to postimages_url, notice:'Update sucessfully' if @postimage.update(postimage_params)
+    flash[:notice] = 'Update sucessfully'
+    flash[:notice] = 'Update error'
+    render :new    
   end
 
   def destroy    
-    if @postimage.destroy
+    return redirect_to postimages_url, notice: 'Destroy sucessfully' if @postimage.destroy
       flash[:notice] = 'Destroy sucessfully'
-      redirect_to postimages_url
-    else
       flash[:notice] = 'Destroy error'
       redirect_to postimage_url
-    end
   end
  
   private

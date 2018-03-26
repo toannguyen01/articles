@@ -1,0 +1,12 @@
+- @posttexts.each do |posttext| 
+  b
+    p = posttext.headline
+    p = posttext.content
+    p = posttext.like 
+    span = link_to 'Edit', edit_posttext_path(posttext) 
+    span = " | "
+    span = link_to 'Read', posttext_path(posttext) 
+    span = " | "
+    span = link_to 'Delete', posttext_path(posttext), method: :delete, 
+          data: {confirm: 'Are you sure want to delete this post image '}    
+  hr

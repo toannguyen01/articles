@@ -1,11 +1,29 @@
-h1 Articles
-= link_to 'Add new Articles', new_article_path() 
+center 
+  h1 Articles
+p.btn
+  = link_to 'Add new Articles', new_article_path() 
 br
-- @articles.each do |article| 
-  p = article.title
-  p = article.like 
-  span.edit_article_btn = link_to 'Edit', edit_article_path(article)  
-  span = link_to 'Read', article_path(article)    
-  span  = link_to 'Delete', article_path(article), method: :delete, 
-          data: {confirm: 'Are you sure want to delete this article'}
+div.containter
+  table.table.table-striped
+    thead
+      tr
+        td Title
+        td Like
+        td Edit
+        td Read
+        td Delete
+    tbody
+      - @articles.each do |article| 
+          tr        
+            td 
+              p = article.title
+            td 
+              p = article.like 
+            td 
+              span.edit_article_btn = link_to 'Edit', edit_article_path(article)  
+            td 
+              span = link_to 'Read', article_path(article)    
+            td 
+              span  = link_to 'Delete', article_path(article), method: :delete, 
+                      data: {confirm: 'Are you sure want to delete this article'}
   hr

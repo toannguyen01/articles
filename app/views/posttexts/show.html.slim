@@ -1,0 +1,6 @@
+div.container
+  h1 = @posttext.headline 
+  p = @posttext.content
+  span = link_to 'Edit', edit_posttext_path(@posttext)  
+  span = " | "
+  span = link_to 'Back', posttexts_path 
