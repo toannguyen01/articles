@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :get_articles, only: [:show, :edit, :update, :destroy]
   def index
-    @articles = Article.all
+    @articles = Article.public_article
   end
 
   def show
